@@ -6,7 +6,7 @@ const Editor_Type = {
 };
 
 class AnimatedStatus {
-	/* BD functions */
+	
 	getName() {
 		return "AnimatedStatus";
 	}
@@ -31,7 +31,7 @@ class AnimatedStatus {
 		return BdApi.getData(this.getName(), key);
 	}
 
-	/* Code related to Animations */
+	
 	load() {
 		this.kSpacing = "15px";
 		this.kMinTimeout = 2900;
@@ -41,7 +41,7 @@ class AnimatedStatus {
 		this.timeout = this.getData("timeout") || this.kMinTimeout;
 		this.editor = this.getData("editor") || this.kDefaultEditor;
 
-		// Be compatible with older configs
+		
 		if (typeof this.timeout == "string")
 			this.timeout = parseInt(this.timeout);
 	}
@@ -209,7 +209,7 @@ class AnimatedStatus {
 		let changeEditMode = GUI.newButton("Change Edit Mode");
 		actions.appendChild(changeEditMode);
 
-		// TODO make this function less bad
+		
 		changeEditMode.onclick = () => {
 			this.editor = !this.editor;
 			let newEdit = undefined;
