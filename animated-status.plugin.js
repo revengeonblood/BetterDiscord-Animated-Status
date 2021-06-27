@@ -79,7 +79,7 @@ class AnimatedStatus {
 		});
 	}
 
-	// Ui related, but special components
+	
 	newRawEdit(str = "") {
 		let out = GUI.newTextarea();
 		out.style.fontFamily = "SourceCodePro,Consolas,Liberation Mono,Menlo,Courier,monospace";
@@ -113,7 +113,7 @@ class AnimatedStatus {
 		return hbox;
 	}
 
-	// Conversion related
+	
 	strToJson(str) {
 		return str.split("\n").filter(i => i).map((element) => JSON.parse(`[${element}]`));
 	}
@@ -151,7 +151,6 @@ class AnimatedStatus {
 		}).filter(e => e.length);
 	}
 
-	// Settings
 	getSettingsPanel() {
 		let settings = document.createElement("div");
 		settings.style.padding = "10px";
@@ -170,13 +169,12 @@ class AnimatedStatus {
 		timeout.style.marginBottom = this.kSpacing;
 		settings.appendChild(timeout);
 
-		// Animation
+		
 		settings.appendChild(GUI.newLabel('Animation'));
 		let animationContainer = document.createElement("div");
 		animationContainer.marginBottom = this.kSpacing;
 		settings.appendChild(animationContainer);
 
-		// Actions
 		let actions = GUI.newHBox();
 		actions.style.marginTop = this.kSpacing;
 		settings.appendChild(actions);
@@ -235,11 +233,9 @@ class AnimatedStatus {
 			edit = newEdit;
 		};
 
-		// Append actions Rich after change edit mode
 		actionsRich.style.marginLeft = this.kSpacing
 		actions.appendChild(actionsRich);
 
-		// Move save to the right
 		actions.appendChild(GUI.setExpand(document.createElement("div"), 2));
 
 		let save = GUI.newButton("Save");
@@ -247,11 +243,11 @@ class AnimatedStatus {
 		actions.appendChild(save);
 		save.onclick = () => {
 			try {
-				// Set timeout
+				
 				this.setData("timeout", parseInt(timeout.value));
 				this.setData("editor", this.editor);
 
-				// Set Animation
+				
 				if (this.editor == Editor_Type.RICH)
 					this.setData("animation", this.richEditToJson(edit));
 				else
@@ -271,12 +267,12 @@ class AnimatedStatus {
 			this.start();
 		};
 
-		// End
+		
 		return settings;
 	}
 }
 
-/* Status API */
+
 const Status = {
 	authToken: Object.values(webpackJsonp.push([ [], { ['']: (_, e, r) => { e.cache = r.c } }, [ [''] ] ]).cache).find(m => m.exports && m.exports.default && m.exports.default.getToken !== void 0).exports.default.getToken(),
 
@@ -324,7 +320,7 @@ const Status = {
 	}
 };
 
-// Used to easily style elements like the 'native' discord ones
+
 const GUI = {
 	newInput: (text = "") => {
 		let input = document.createElement("input");
