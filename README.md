@@ -20,4 +20,3 @@ Animate your Discord status
 
 
 
-lol it broken
